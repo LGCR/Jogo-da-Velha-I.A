@@ -19,8 +19,6 @@ typedef struct node {
     struct node* dir;
 } No, Arvore;
 
-void flush();
-
 /*----------------------*/
 int maior (int esq, int dir) ;
 
@@ -70,5 +68,7 @@ int  calcula_passos(Arvore* a, int *tabuleiro, int passos, int index);
 Arvore* jogada_computador(Arvore* a, int ultima_jogada);
 
 int jogada_jogador();
+
+int menu_principal();
 
 #endif //JOGO_DA_VELHA_PROJETO_AVL_JOGO_DA_VELHA_H

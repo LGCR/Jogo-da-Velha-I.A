@@ -5,9 +5,14 @@
 
 #include "avl_jogo_da_velha.h"
 
-void flush()
-{
-    puts("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+void clear(){
+  #ifdef __linux__
+    system("clear");
+  #elif defined _WIN32
+    system("cls");
+  #else
+    perror("Plataforma não suportada");
+  #endif
 }
 
 /*----------------------*/
@@ -222,7 +227,9 @@ void imprimir_tabuleiro(Arvore* a, int tabuleiro[]){
     int i;
     char jogada;
 
-    arvore_para_vetor(a, tabuleiro);
+    if(a != NULL) {
+        arvore_para_vetor(a, tabuleiro);
+    }
 
     //flush();
     printf("\n");
@@ -352,4 +359,26 @@ int jogada_jogador(){
         scanf("%d", &opcao);
     }
     return opcao;
+}
+
+int menu_principal(){
+  char opcoes_menu[5][35] = {"1 - Jogar contra o computador", "2 - Jogar contra outro jogador", "3 - Rede", "4 - Ranking", "5 - Sair"};
+  int i, j, opcao;
+
+  clear();
+  printf("=================================\n");
+  for (i = 0; i < 5; ++i){
+    for (j = 0; j < 35; ++j){
+        if(opcoes_menu[i][j] != '\0') {
+            printf("%c", opcoes_menu[i][j]);
+        }
+        else{
+        printf("\n");
+        break;
+      }
+    }
+  }
+  printf("=================================\n> ");
+  scanf("%d", &opcao);
+  return opcao;
 }
