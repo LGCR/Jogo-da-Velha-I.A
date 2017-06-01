@@ -1,0 +1,50 @@
+	-> Durante o jogo PvsP o jogo disse que deu velha apesar de ter 3 Xs na diagonal!!
+
+	 X | O | X
+	 O | X | O
+	 X |   |
+
+	Imagino que o erro esteja na variável que contabiliza jogadas, pois eu testei nessa partida fazer jogadas em posições já ocupadas.
+
+	-> Durante o jogo PvsIA o computador na possibilidade de vencer a partida acabou por jogar em uma outra posição que não fazia sentido nenhum caso o objetivo do mesmo fosse vencer ao invés de fazer uma jogada aleatória.
+
+	Não lembro como estava o jogo.
+
+	-> Durante  o jogo PvsIA o sistema me deixou fazer duas jogadas seguidas sem o computador fazer sua jogada!
+
+	  | X | 	 X | X | O
+	  |   |    ->	   |   |
+	  |   |    	   |   |
+
+	Segunda vez que o jogo me permite fazer duas jogadas seguidas, aparentemente isso ocorre quando a primeira jogada é na posição 1!
+
+	-> Jogo deu erro e fechou "Process finished with exit code 139 (interrupted by signal 11: SIGSEGV)". Isso ocorreu quando faltava apenas uma jogada para dar velha, e então eu joguei em uma posição que já estava ocupada! (Erro ocorreu mais que uma vez!)
+
+	  X  |  O  |  X  
+	------------------
+	  X  |  O  |     
+	------------------
+	  O  |  X  |  O  
+
+
+	Digite uma posição [0-8]
+	> 0
+
+	Jogada Inválida!
+
+	-> Diante da possibilidade de vitória o computador faz uma jogada em um local que não faz sentido se o objetivo for a vitória!
+
+	  X  |  O  |  X  
+	------------------
+	     |  X  |  X  
+	------------------
+	  O  |     |  O  
+
+
+	  X  |  O  |  X  
+	------------------
+	  O  |  X  |  X  
+	------------------
+	  O  |     |  O  
+
+
