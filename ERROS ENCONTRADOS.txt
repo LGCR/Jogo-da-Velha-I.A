@@ -1,0 +1,77 @@
+	-> Após fazer uma jogada contra o computador o computador não faz a jogada dele, sendo assim me permite jogar 2 vezes seguidas!
+
+  X  |     |  O  
+------------------
+     |  O  |     
+------------------
+  X  |  O  |  X  
+
+
+Digite uma posição [0-8]
+> 1
+
+  X  |  X  |  O  
+------------------
+     |  O  |     
+------------------
+  X  |  O  |  X  
+
+
+  X  |  X  |  O  
+------------------
+     |  O  |     
+------------------
+  X  |  O  |  X  
+
+
+Digite uma posição [0-8]
+> 
+
+	-> Houve um momento no joga em que uma ou duas jogadas sumiram do tabuleiro misteriosamente! E também as próximas jogadas feitas não
+aparecem mais no tabuleiro. Esse erro ocorreu multiplas vezes!
+
+  O  |     |  X  
+------------------
+     |  O  |     
+------------------
+  X  |     |     
+
+
+Digite uma posição [0-8]
+> 8
+
+  O  |     |  X  
+------------------
+     |  O  |     
+------------------
+  X  |     |  X  
+
+
+  O  |     |  X  
+------------------
+     |     |  O  
+------------------
+     |     |     
+
+
+Digite uma posição [0-8]
+> 3
+
+  O  |     |  X  
+------------------
+  X  |     |  O  
+------------------
+     |     |     
+
+
+  O  |     |  X  
+------------------
+     |     |  O  
+------------------
+     |     |  O  
+
+
+Digite uma posição [0-8]
+
+	->
+

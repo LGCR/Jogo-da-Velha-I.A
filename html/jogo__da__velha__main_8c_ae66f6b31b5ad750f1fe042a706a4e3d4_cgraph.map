@@ -1,0 +1,18 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$jogo__da__velha__main_8c.html#a122bc80c1701fe7d714188c3f55197f2" title="Função que controla o jogo quando selecionado a opção Player vs IA. " alt="" coords="104,185,272,212"/>
+<area shape="rect" id="node17" href="$jogo__da__velha__main_8c.html#aa24f40cfc3db5d038952a99c9300655b" title="Função que controla o jogo quando é selecionado a opção de Player vc Player. " alt="" coords="117,134,259,161"/>
+<area shape="rect" id="node3" href="$avl__jogo__da__velha_8c.html#a03c14608eb7cb557075be88d2a193e49" title="Essa função verifica se alguém ganhou o jogo e retorna um inteiro. " alt="" coords="320,160,444,186"/>
+<area shape="rect" id="node4" href="$avl__jogo__da__velha_8c.html#a7554598a42d11e8a4fef8f92c36fe13b" title="Função que encontra um nó específico baseado em sua chave e retorna o valor da variável jogador..." alt="" coords="496,241,557,268"/>
+<area shape="rect" id="node7" href="$avl__jogo__da__velha_8c.html#a87b15069b0289dade853f446e136d608" title="Insere um novo nó na ávore AVL. " alt="" coords="498,85,555,112"/>
+<area shape="rect" id="node16" href="$avl__jogo__da__velha_8c.html#a9cd92c535c650a1b614c5d58fb94bfd7" title="Remove um nó da árvore AVL baseado na sua chave. " alt="" coords="492,160,561,186"/>
+<area shape="rect" id="node5" href="$avl__jogo__da__velha_8c.html#aa7d437fe01057d6ba284149c0da2eb05" title="Função que retorna a diferença das alturas do nós. " alt="" coords="785,261,895,288"/>
+<area shape="rect" id="node6" href="$avl__jogo__da__velha_8c.html#ac6bb8a4fc7472c16f5f758a7f7425f68" title="Função retorna a altura de uma árvore. " alt="" coords="999,261,1053,288"/>
+<area shape="rect" id="node8" href="$avl__jogo__da__velha_8c.html#aa3d5e67559c9a249b23e7f8927842eb7" title="atualizar_fb_esq" alt="" coords="609,160,727,186"/>
+<area shape="rect" id="node14" href="$avl__jogo__da__velha_8c.html#a8ce524b15457a53f5aa1bf0df38c1184" title="atualizar_fb_dir" alt="" coords="613,72,723,98"/>
+<area shape="rect" id="node9" href="$avl__jogo__da__velha_8c.html#a7ee46e52a150b1b20c07acb89bf91eff" title="Função recursiva que atualiza as altura da árvore. " alt="" coords="1147,84,1257,110"/>
+<area shape="rect" id="node11" href="$avl__jogo__da__velha_8c.html#aaab988d411edd9c2da9f573470637034" title="Função que realiza uma rotação simples a direita na AVL. " alt="" coords="957,109,1095,136"/>
+<area shape="rect" id="node12" href="$avl__jogo__da__velha_8c.html#acc72864ec05d32d4e2976ba36a5b996d" title="Função que realiza uma rotação dupla a direita na AVL. " alt="" coords="778,109,902,136"/>
+<area shape="rect" id="node10" href="$avl__jogo__da__velha_8c.html#a95df9e1867414fc6300bba61acbea2dc" title="Função que ao receber 2 inteiro, retorna o maior deles. " alt="" coords="1305,84,1360,110"/>
+<area shape="rect" id="node13" href="$avl__jogo__da__velha_8c.html#a1d887c6e78f20a742c701e4eef535d0c" title="Função que realiza uma rotação simples a esquerda na AVL. " alt="" coords="953,58,1099,85"/>
+<area shape="rect" id="node15" href="$avl__jogo__da__velha_8c.html#a6dcd1bb64a374558ddc04d94e4a3c471" title="Função que realiza uma rotação dupla a esquerda na AVL. " alt="" coords="775,58,905,85"/>
+</map>

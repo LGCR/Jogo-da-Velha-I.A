@@ -1,0 +1,5 @@
+<map id="buscar" name="buscar">
+<area shape="rect" id="node2" href="$avl__jogo__da__velha_8c.html#a7554598a42d11e8a4fef8f92c36fe13b" title="Função que encontra um nó específico baseado em sua chave e retorna o valor da variável jogador..." alt="" coords="115,29,176,56"/>
+<area shape="rect" id="node3" href="$avl__jogo__da__velha_8c.html#aa7d437fe01057d6ba284149c0da2eb05" title="Função que retorna a diferença das alturas do nós. " alt="" coords="224,55,335,81"/>
+<area shape="rect" id="node4" href="$avl__jogo__da__velha_8c.html#ac6bb8a4fc7472c16f5f758a7f7425f68" title="Função retorna a altura de uma árvore. " alt="" coords="383,55,437,81"/>
+</map>

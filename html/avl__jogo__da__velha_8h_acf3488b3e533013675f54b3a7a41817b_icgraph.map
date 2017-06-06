@@ -1,0 +1,9 @@
+<map id="rotacao_dupla_esq" name="rotacao_dupla_esq">
+<area shape="rect" id="node2" href="$avl__jogo__da__velha_8h.html#a2e24e439b994c4a16d861ae3a6614582" title="atualizar_fb_dir" alt="" coords="184,67,295,93"/>
+<area shape="rect" id="node3" href="$avl__jogo__da__velha_8h.html#afe18d556ac35160889384a7d7b040248" title="Insere um novo nó na ávore AVL. " alt="" coords="349,104,406,131"/>
+<area shape="rect" id="node8" href="$avl__jogo__da__velha_8h.html#a265a5bc7a5b7ebc270a8856f54488d03" title="Remove um nó da árvore AVL baseado na sua chave. " alt="" coords="343,29,412,56"/>
+<area shape="rect" id="node4" href="$avl__jogo__da__velha_8h.html#a03c14608eb7cb557075be88d2a193e49" title="Essa função verifica se alguém ganhou o jogo e retorna um inteiro. " alt="" coords="460,41,584,68"/>
+<area shape="rect" id="node5" href="$jogo__da__velha__main_8c.html#a122bc80c1701fe7d714188c3f55197f2" title="Função que controla o jogo quando selecionado a opção Player vs IA. " alt="" coords="632,117,800,144"/>
+<area shape="rect" id="node7" href="$jogo__da__velha__main_8c.html#aa24f40cfc3db5d038952a99c9300655b" title="Função que controla o jogo quando é selecionado a opção de Player vc Player. " alt="" coords="645,67,787,93"/>
+<area shape="rect" id="node6" href="$jogo__da__velha__main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função Main do programa C. " alt="" coords="848,92,899,119"/>
+</map>

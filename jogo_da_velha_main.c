@@ -2,9 +2,31 @@
 // Created by lucas on 25/05/17.
 //
 
+/*!
+ * \mainpage
+ * \brief Código fonte do jogo da velha.
+ * \details <p>Esse código, juntamente com a Main, representa uma série de funções que controlam
+ * o jogo da velha!</p>
+ * \author Lucas Ribeiro
+ * \date 25/05/2017
+ */
+
+/*!
+ * \file jogo_da_velha_main.c
+ * \brief Código fonte do jogo da velha.
+ * \author Lucas Ribeiro
+ * \date 25/05/2017
+ * \headerfile stdbool.h <>
+ * \headerfile avl_jogo_da_velha.h ""
+ */
 #include <stdbool.h>
 #include "avl_jogo_da_velha.h"
 
+/*!
+ * \fn void jogar_contra_computador(Arvore *a)
+ * \brief Função que controla o jogo quando selecionado a opção Player vs IA
+ * @param a Ponteiro para a árvore AVL
+ */
 void jogar_contra_computador(Arvore *a){
     int nos = 0, opcao = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
     Arvore* verificacao = NULL;
@@ -55,6 +77,11 @@ void jogar_contra_computador(Arvore *a){
     }
 }
 
+/*!
+ * \fn void jogar_contra_jogador(Arvore *a)
+ * \brief Função que controla o jogo quando é selecionado a opção de Player vc Player
+ * @param a Ponteiro para a ávore AVL.
+ */
 /*-----------------------*/
 void jogar_contra_jogador(Arvore *a){
     int opcao = 0, nos = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
@@ -111,6 +138,11 @@ void jogar_contra_jogador(Arvore *a){
     }
 }
 
+/*!
+ * \fn int main ()
+ * \brief Função Main do programa C
+ * @return Retorno da função Main
+ */
 /*----------------------*/
 int main () {
 

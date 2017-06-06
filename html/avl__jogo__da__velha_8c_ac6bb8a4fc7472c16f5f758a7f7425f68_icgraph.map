@@ -1,0 +1,12 @@
+<map id="altura" name="altura">
+<area shape="rect" id="node2" href="$avl__jogo__da__velha_8h.html#aa7d437fe01057d6ba284149c0da2eb05" title="Função que retorna a diferença das alturas do nós. " alt="" coords="108,104,219,131"/>
+<area shape="rect" id="node3" href="$avl__jogo__da__velha_8h.html#a2e24e439b994c4a16d861ae3a6614582" title="atualizar_fb_dir" alt="" coords="270,104,381,131"/>
+<area shape="rect" id="node10" href="$avl__jogo__da__velha_8h.html#a2e7777768fb10fdf687039c5ebf1116c" title="atualizar_fb_esq" alt="" coords="267,53,384,80"/>
+<area shape="rect" id="node11" href="$avl__jogo__da__velha_8h.html#a7554598a42d11e8a4fef8f92c36fe13b" title="Função que encontra um nó específico baseado em sua chave e retorna o valor da variável jogador..." alt="" coords="436,179,497,205"/>
+<area shape="rect" id="node4" href="$avl__jogo__da__velha_8h.html#afe18d556ac35160889384a7d7b040248" title="Insere um novo nó na ávore AVL. " alt="" coords="438,29,495,56"/>
+<area shape="rect" id="node9" href="$avl__jogo__da__velha_8h.html#a265a5bc7a5b7ebc270a8856f54488d03" title="Remove um nó da árvore AVL baseado na sua chave. " alt="" coords="432,104,501,131"/>
+<area shape="rect" id="node5" href="$avl__jogo__da__velha_8h.html#a03c14608eb7cb557075be88d2a193e49" title="Essa função verifica se alguém ganhou o jogo e retorna um inteiro. " alt="" coords="549,104,673,131"/>
+<area shape="rect" id="node6" href="$jogo__da__velha__main_8c.html#a122bc80c1701fe7d714188c3f55197f2" title="Função que controla o jogo quando selecionado a opção Player vs IA. " alt="" coords="721,129,889,156"/>
+<area shape="rect" id="node8" href="$jogo__da__velha__main_8c.html#aa24f40cfc3db5d038952a99c9300655b" title="Função que controla o jogo quando é selecionado a opção de Player vc Player. " alt="" coords="734,79,877,105"/>
+<area shape="rect" id="node7" href="$jogo__da__velha__main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função Main do programa C. " alt="" coords="937,104,988,131"/>
+</map>

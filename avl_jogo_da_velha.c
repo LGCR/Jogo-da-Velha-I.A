@@ -2,6 +2,13 @@
 // Created by lucas on 25/05/17.
 //
 
+/*!
+ * \file avl_jogo_da_velha.c
+ * \brief Implementação das funções descritas na biblioteca avl_jogo_da_velha.h
+ * \author Lucas Ribeiro
+ * \date 25/05/2017
+ * \headerfile avl_jogo_da_velha.h ""
+ */
 
 #include "avl_jogo_da_velha.h"
 

@@ -1,0 +1,12 @@
+<map id="inserir" name="inserir">
+<area shape="rect" id="node2" href="$avl__jogo__da__velha_8c.html#aa3d5e67559c9a249b23e7f8927842eb7" title="atualizar_fb_esq" alt="" coords="111,59,228,86"/>
+<area shape="rect" id="node10" href="$avl__jogo__da__velha_8c.html#a8ce524b15457a53f5aa1bf0df38c1184" title="atualizar_fb_dir" alt="" coords="114,160,225,187"/>
+<area shape="rect" id="node3" href="$avl__jogo__da__velha_8c.html#a7ee46e52a150b1b20c07acb89bf91eff" title="Função recursiva que atualiza as altura da árvore. " alt="" coords="648,110,759,136"/>
+<area shape="rect" id="node5" href="$avl__jogo__da__velha_8c.html#aa7d437fe01057d6ba284149c0da2eb05" title="Função que retorna a diferença das alturas do nós. " alt="" coords="286,110,397,136"/>
+<area shape="rect" id="node7" href="$avl__jogo__da__velha_8c.html#aaab988d411edd9c2da9f573470637034" title="Função que realiza uma rotação simples a direita na AVL. " alt="" coords="458,59,597,86"/>
+<area shape="rect" id="node8" href="$avl__jogo__da__velha_8c.html#acc72864ec05d32d4e2976ba36a5b996d" title="Função que realiza uma rotação dupla a direita na AVL. " alt="" coords="279,59,403,86"/>
+<area shape="rect" id="node4" href="$avl__jogo__da__velha_8c.html#a95df9e1867414fc6300bba61acbea2dc" title="Função que ao receber 2 inteiro, retorna o maior deles. " alt="" coords="807,110,861,136"/>
+<area shape="rect" id="node6" href="$avl__jogo__da__velha_8c.html#ac6bb8a4fc7472c16f5f758a7f7425f68" title="Função retorna a altura de uma árvore. " alt="" coords="500,110,555,136"/>
+<area shape="rect" id="node9" href="$avl__jogo__da__velha_8c.html#a1d887c6e78f20a742c701e4eef535d0c" title="Função que realiza uma rotação simples a esquerda na AVL. " alt="" coords="455,160,600,187"/>
+<area shape="rect" id="node11" href="$avl__jogo__da__velha_8c.html#a6dcd1bb64a374558ddc04d94e4a3c471" title="Função que realiza uma rotação dupla a esquerda na AVL. " alt="" coords="276,160,407,187"/>
+</map>

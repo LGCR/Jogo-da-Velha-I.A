@@ -1,0 +1,135 @@
+\begin{theindex}
+
+  \item {altura}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{12}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{25}
+    \subitem {node}, \hyperpage{9}
+  \item {atualizar\+\_\+altura}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{13}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{26}
+  \item {atualizar\+\_\+fb\+\_\+dir}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{14}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{26}
+  \item {atualizar\+\_\+fb\+\_\+esq}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{14}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{27}
+  \item {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{11}
+    \subitem {altura}, \hyperpage{12}
+    \subitem {atualizar\+\_\+altura}, \hyperpage{13}
+    \subitem {atualizar\+\_\+fb\+\_\+dir}, \hyperpage{14}
+    \subitem {atualizar\+\_\+fb\+\_\+esq}, \hyperpage{14}
+    \subitem {balanceamento}, \hyperpage{15}
+    \subitem {buscar}, \hyperpage{16}
+    \subitem {inserir}, \hyperpage{17}
+    \subitem {maior}, \hyperpage{18}
+    \subitem {remover}, \hyperpage{19}
+    \subitem {rotacao\+\_\+dupla\+\_\+dir}, \hyperpage{19}
+    \subitem {rotacao\+\_\+dupla\+\_\+esq}, \hyperpage{20}
+    \subitem {rotacao\+\_\+simples\+\_\+dir}, \hyperpage{21}
+    \subitem {rotacao\+\_\+simples\+\_\+esq}, \hyperpage{21}
+    \subitem {verifica\+\_\+ganhador}, \hyperpage{22}
+  \item {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{23}
+    \subitem {altura}, \hyperpage{25}
+    \subitem {atualizar\+\_\+altura}, \hyperpage{26}
+    \subitem {atualizar\+\_\+fb\+\_\+dir}, \hyperpage{26}
+    \subitem {atualizar\+\_\+fb\+\_\+esq}, \hyperpage{27}
+    \subitem {balanceamento}, \hyperpage{28}
+    \subitem {buscar}, \hyperpage{29}
+    \subitem {inserir}, \hyperpage{30}
+    \subitem {maior}, \hyperpage{31}
+    \subitem {remover}, \hyperpage{31}
+    \subitem {rotacao\+\_\+dupla\+\_\+dir}, \hyperpage{32}
+    \subitem {rotacao\+\_\+dupla\+\_\+esq}, \hyperpage{33}
+    \subitem {rotacao\+\_\+simples\+\_\+dir}, \hyperpage{34}
+    \subitem {rotacao\+\_\+simples\+\_\+esq}, \hyperpage{34}
+    \subitem {verifica\+\_\+ganhador}, \hyperpage{35}
+
+  \indexspace
+
+  \item {balanceamento}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{15}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{28}
+  \item {buscar}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{16}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{29}
+
+  \indexspace
+
+  \item {chave}
+    \subitem {node}, \hyperpage{9}
+
+  \indexspace
+
+  \item {dir}
+    \subitem {node}, \hyperpage{10}
+
+  \indexspace
+
+  \item {esq}
+    \subitem {node}, \hyperpage{10}
+
+  \indexspace
+
+  \item {inserir}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{17}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{30}
+
+  \indexspace
+
+  \item {jogador}
+    \subitem {node}, \hyperpage{10}
+  \item {jogar\+\_\+contra\+\_\+computador}
+    \subitem {jogo\+\_\+da\+\_\+velha\+\_\+main.\+c}, \hyperpage{37}
+  \item {jogar\+\_\+contra\+\_\+jogador}
+    \subitem {jogo\+\_\+da\+\_\+velha\+\_\+main.\+c}, \hyperpage{38}
+  \item {jogo\+\_\+da\+\_\+velha\+\_\+main.\+c}, \hyperpage{36}
+    \subitem {jogar\+\_\+contra\+\_\+computador}, \hyperpage{37}
+    \subitem {jogar\+\_\+contra\+\_\+jogador}, \hyperpage{38}
+    \subitem {main}, \hyperpage{38}
+
+  \indexspace
+
+  \item {main}
+    \subitem {jogo\+\_\+da\+\_\+velha\+\_\+main.\+c}, \hyperpage{38}
+  \item {maior}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{18}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {node}, \hyperpage{9}
+    \subitem {altura}, \hyperpage{9}
+    \subitem {chave}, \hyperpage{9}
+    \subitem {dir}, \hyperpage{10}
+    \subitem {esq}, \hyperpage{10}
+    \subitem {jogador}, \hyperpage{10}
+
+  \indexspace
+
+  \item {remover}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{19}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{31}
+  \item {rotacao\+\_\+dupla\+\_\+dir}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{19}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{32}
+  \item {rotacao\+\_\+dupla\+\_\+esq}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{20}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{33}
+  \item {rotacao\+\_\+simples\+\_\+dir}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{21}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{34}
+  \item {rotacao\+\_\+simples\+\_\+esq}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{21}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {struct}, \hyperpage{10}
+
+  \indexspace
+
+  \item {verifica\+\_\+ganhador}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+c}, \hyperpage{22}
+    \subitem {avl\+\_\+jogo\+\_\+da\+\_\+velha.\+h}, \hyperpage{35}
+
+\end{theindex}

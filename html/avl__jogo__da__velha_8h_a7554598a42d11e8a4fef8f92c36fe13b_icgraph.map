@@ -1,0 +1,6 @@
+<map id="buscar" name="buscar">
+<area shape="rect" id="node2" href="$avl__jogo__da__velha_8h.html#a03c14608eb7cb557075be88d2a193e49" title="Essa função verifica se alguém ganhou o jogo e retorna um inteiro. " alt="" coords="115,52,239,78"/>
+<area shape="rect" id="node3" href="$jogo__da__velha__main_8c.html#a122bc80c1701fe7d714188c3f55197f2" title="Função que controla o jogo quando selecionado a opção Player vs IA. " alt="" coords="287,26,455,53"/>
+<area shape="rect" id="node5" href="$jogo__da__velha__main_8c.html#aa24f40cfc3db5d038952a99c9300655b" title="Função que controla o jogo quando é selecionado a opção de Player vc Player. " alt="" coords="299,77,442,104"/>
+<area shape="rect" id="node4" href="$jogo__da__velha__main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função Main do programa C. " alt="" coords="503,52,553,78"/>
+</map>
