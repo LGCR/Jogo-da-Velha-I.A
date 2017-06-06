@@ -11,9 +11,6 @@
 typedef struct node {
     int chave;
     int jogador;
-    char jogada;
-    int *tabuleiro;
-    int pontos;
     int altura;
     struct node* esq;
     struct node* dir;
@@ -49,23 +46,27 @@ Arvore* atualizar_fb_dir (Arvore *r) ;
 Arvore* atualizar_fb_esq (Arvore *r) ;
 
 /*----------------------*/
-Arvore* inserir (Arvore *a, int chave, char jogada, int *tabuleiro);
+Arvore* inserir (Arvore *a, int chave, int jogador);
 
 /*----------------------*/
 Arvore* remover (Arvore *a, int chave);
+
+int buscar(Arvore *a, int chave);
 
 /*----------------------*/
 void imprimir_in_order (Arvore* a, int nivel) ;
 
 void arvore_para_vetor(Arvore* a, int *tabuleiro);
 
-void imprimir_tabuleiro(Arvore* a, int tabuleiro[]);
+void imprimir_tabuleiro(Arvore* a);
 
-int verifica_ganhador(int jogador, int* tabuleiro);
+int verifica_ganhador(Arvore* a, int jogador);
 
-int  calcula_passos(Arvore* a, int *tabuleiro, int passos, int index);
+int conta_nos(Arvore *a);
 
-Arvore* jogada_computador(Arvore* a, int ultima_jogada);
+void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, int *passos, int index);
+
+Arvore* jogada_computador(Arvore* a, Arvore* verificacao);
 
 int jogada_jogador();
 

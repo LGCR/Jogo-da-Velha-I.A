@@ -31,8 +31,8 @@ int altura (Arvore* a) {
 }
 
 int atualizar_altura(Arvore *a){
-	int altura_direita;
-    int altura_esquerda;
+	int altura_direita = 0;
+    int altura_esquerda = 0;
     if((a != NULL)) {
         if(a->dir == NULL && a->esq == NULL){
             return a->altura + 1;
@@ -53,6 +53,7 @@ int atualizar_altura(Arvore *a){
             }
         }
     }
+    return 0;
 }
 
 /*----------------------*/
@@ -88,7 +89,7 @@ Arvore* rotacao_dupla_esq (Arvore* r) {
 
 /*----------------------*/
 Arvore* rotacao_dupla_dir (Arvore* r) {
-    r->esq = rotacao_simples_dir(r->esq);
+    r->esq = rotacao_simples_esq(r->esq);
     return rotacao_simples_dir(r);
 }
 
@@ -123,37 +124,21 @@ Arvore* atualizar_fb_esq (Arvore *r) {
 }
 
 /*----------------------*/
-Arvore* inserir (Arvore *a, int chave, char jogada, int *tabuleiro) {
+Arvore* inserir (Arvore *a, int chave, int jogador) {
    if (a == NULL) {
       a = (No*)malloc(sizeof(No));
       a->chave = chave;
-      a->jogada = jogada;
       a->altura = 0;
-      a->tabuleiro = tabuleiro;
       a->esq = a->dir = NULL;
-      if(jogada == 'X'){
-          a->jogador = 1;
-          a->pontos = 10;
-      }
-      else if(jogada == 'O'){
-          a->jogador = 2;
-          a->pontos = -10;
-      }
-      else{
-          a->jogador = 0;
-      }
-      a->tabuleiro[a->chave] = a->jogador;
+      a->jogador = jogador;
    }
    else if (chave < a->chave) {
-      a->esq = inserir (a->esq, chave, jogada, tabuleiro);
+      a->esq = inserir (a->esq, chave, jogador);
       a = atualizar_fb_esq (a);
    }
    else if (chave > a->chave) {
-      a->dir = inserir (a->dir, chave, jogada, tabuleiro);
+      a->dir = inserir (a->dir, chave, jogador);
       a = atualizar_fb_dir (a);
-   }
-   else{
-       printf("\nJogada Inválida!\n");
    }
    return a;
 }
@@ -202,6 +187,22 @@ Arvore* remover (Arvore *a, int chave) {
    }   
 }
 
+int buscar(Arvore *a, int chave){
+    int jogador = 0;
+    if(a != NULL){
+        if(chave == a->chave){
+            return a->jogador;
+        }
+        else if(chave < a->chave){
+            return buscar(a->esq, chave);
+        }
+        else{
+            return buscar(a->dir, chave);
+        }
+    }
+    return jogador;
+}
+
 /*----------------------*/
 void imprimir_in_order (Arvore* a, int nivel) {
    if (a != NULL) {
@@ -223,8 +224,8 @@ void arvore_para_vetor(Arvore* a, int *tabuleiro){
     }
 }
 
-void imprimir_tabuleiro(Arvore* a, int tabuleiro[]){
-    int i;
+void imprimir_tabuleiro(Arvore* a){
+    int i, tabuleiro[] = {0,0,0,0,0,0,0,0,0};
     char jogada;
 
     if(a != NULL) {
@@ -256,105 +257,116 @@ void imprimir_tabuleiro(Arvore* a, int tabuleiro[]){
     }
 }
 
-int verifica_ganhador(int jogador, int* tabuleiro){
-    if((tabuleiro[0] == jogador) && (tabuleiro[1] == jogador) && (tabuleiro[2] == jogador)){
-        return 0;
-    }
-    else if((tabuleiro[0] == jogador) && (tabuleiro[3] == jogador) && (tabuleiro[6] == jogador)){
-        return 1;
-    }
-    else if((tabuleiro[0] == jogador) && (tabuleiro[4] == jogador) && (tabuleiro[8] == jogador)){
-        return 2;
-    }
-    else if((tabuleiro[1] == jogador) && (tabuleiro[4] == jogador) && (tabuleiro[7] == jogador)){
-        return 3;
-    }
-    else if((tabuleiro[2] == jogador) && (tabuleiro[4] == jogador) && (tabuleiro[6] == jogador)){
-        return 4;
-    }
-    else if((tabuleiro[2] == jogador) && (tabuleiro[5] == jogador) && (tabuleiro[8] == jogador)){
-        return 5;
-    }
-    else if((tabuleiro[3] == jogador) && (tabuleiro[4] == jogador) && (tabuleiro[5] == jogador)){
-        return 6;
-    }
-    else if((tabuleiro[6] == jogador) && (tabuleiro[7] == jogador) && (tabuleiro[8] == jogador)){
-        return 7;
-    }
-    else{
-        return -1;
-    }
-}
-
-int  calcula_passos(Arvore* a, int *tabuleiro, int passos, int index){
-    if(index < 9) {
-        if (tabuleiro[index] == 0) {
-            a = inserir(a, index, 'X', tabuleiro);
-            if (verifica_ganhador(1, tabuleiro) == -1) {
-                passos = calcula_passos(a, tabuleiro, (passos) + 1, index + 1);
-            }
-            if (verifica_ganhador(1, tabuleiro) != -1) {
-                tabuleiro[index] = 2;
-            }
-        } else {
-            passos = calcula_passos(a, tabuleiro, passos + 1, index + 1);
+int verifica_ganhador(Arvore* a, int jogador){
+    if(a != NULL){
+        if((buscar(a, 0) == jogador) && (buscar(a, 1) == jogador) && (buscar(a, 2) == jogador)){
+            return 0;
+        }
+        else if((buscar(a, 0) == jogador) && (buscar(a, 3) == jogador) && (buscar(a, 6) == jogador)){
+            return 1;
+        }
+        else if((buscar(a, 0) == jogador) && (buscar(a, 4) == jogador) && (buscar(a, 8) == jogador)){
+            return 2;
+        }
+        else if((buscar(a, 1) == jogador) && (buscar(a, 4) == jogador) && (buscar(a, 7) == jogador)){
+            return 3;
+        }
+        else if((buscar(a, 2) == jogador) && (buscar(a, 4) == jogador) && (buscar(a, 6) == jogador)){
+            return 4;
+        }
+        else if((buscar(a, 2) == jogador) && (buscar(a, 5) == jogador) && (buscar(a, 8) == jogador)){
+            return 5;
+        }
+        else if((buscar(a, 3) == jogador) && (buscar(a, 4) == jogador) && (buscar(a, 5) == jogador)){
+            return 6;
+        }
+        else if((buscar(a, 6) == jogador) && (buscar(a, 7) == jogador) && (buscar(a, 8) == jogador)){
+            return 7;
         }
     }
-    return passos;
+    return -1;
 }
 
-Arvore* jogada_computador(Arvore* a, int ultima_jogada){
-
-    int i, j, index = 0, passos, menor = 100;
-    int tab_aux[9];
-
-    for (i = 0; i < 9; ++i) {
-        tab_aux[i] = a->tabuleiro[i];
+int conta_nos(Arvore *a){
+    if(a != NULL){
+        return 1 + conta_nos(a->esq) + conta_nos(a->dir);
     }
+    return 0;
+}
 
-    if(a != NULL) {
-        if(ultima_jogada == a->chave){
-            for (i = 0; i < 9; ++i){
-                if(i != a->chave && a->tabuleiro[i] != 1 && a->tabuleiro[i] != 2) {
-                    Arvore* aux= NULL;
-                    passos = calcula_passos(aux, tab_aux, 0, i);
-                    if(passos < menor){
-                        menor = passos;
-                        i = i + menor;
-                        index = i;
-                        tab_aux[index] = 2;
+void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, int *passos, int index){
+    if(index < 9) {
+        if (*verificacao != NULL) {
+            if (buscar(a, index) == 0) {
+                *verificacao = inserir(*verificacao, index, 1);
+                if (verifica_ganhador(b, 1) == -1) {
+                    calcula_passos(&(*verificacao)->esq, a, b, passos, index + 1);
+                    calcula_passos(&(*verificacao)->dir, a, b, passos, index + 1);
+                }
+                if(verifica_ganhador(b, 1) != -1){
+                    a = inserir(a, index, 1);
+                    if(verifica_ganhador(a, 1) != -1) {
+                        *passos = index;
                     }
-                    else if(passos == menor && index < i){
-                        //--menor;
-                        for(j = index; j <= i + passos; ++j){
-                            if(a->tabuleiro[j] == 0){
-                                a->tabuleiro[j] = 1;
-                                if(verifica_ganhador(1, a->tabuleiro) != -1){
-                                    index = j;
-                                }
-				a->tabuleiro[j] = 0;
-                            }
+                    a = remover(a, index);
+                    if (*passos == 0){
+                        if(buscar(a, 0) == 0){
+                            *passos = 0;
+                        }
+                        else if(buscar(a, 2) == 0){
+                            *passos = 2;
+                        }
+                        else if(buscar(a, 6) == 0){
+                            *passos = 6;
+                        }
+                        else if(buscar(a, 8) == 0){
+                            *passos = 8;
+                        }
+                        else if(buscar(a, 4) == 0){
+                            *passos = 4;
+                        }
+                        else if(buscar(a, 1) == 0){
+                            *passos = 1;
+                        }
+                        else if(buscar(a, 3) == 0){
+                            *passos = 3;
+                        }
+                        else if(buscar(a, 5) == 0){
+                            *passos = 5;
+                        }
+                        else if(buscar(a, 7) == 0){
+                            *passos = 7;
                         }
                     }
                 }
-            }
-            a = inserir(a, index, 'O', a->tabuleiro);
-        }
-        else {
-            if (ultima_jogada < a->chave) {
-                jogada_computador(a->esq, ultima_jogada);
-            }
-            if (ultima_jogada > a->chave) {
-                jogada_computador(a->dir, ultima_jogada);
+                *verificacao = remover(*verificacao, index);
+            } else{
+                calcula_passos(&(*verificacao), a, b, passos, index + 1);
             }
         }
+    }
+}
+
+Arvore* jogada_computador(Arvore* a, Arvore* verificacao){
+
+    int i, modo = 1, passos = 0, index = 0;
+
+    if(a != NULL){
+        for (i = 0; i < 9; ++i) {
+            if (buscar(a, i) == 0) {
+                calcula_passos(&verificacao, a, verificacao, &passos, i);
+                index = passos;
+            }
+        }
+        a = inserir(a, index, 2);
+        verificacao = inserir(verificacao, index, 2);
     }
     return a;
 }
 
 int jogada_jogador(){
-    int opcao = -1;
-    while(opcao < 0 || opcao > 8) {
+    int opcao = -2;
+    while(opcao < -1 || opcao > 8) {
         printf("\nDigite uma posição [0-8]\n> ");
         scanf("%d", &opcao);
     }
@@ -362,12 +374,12 @@ int jogada_jogador(){
 }
 
 int menu_principal(){
-  char opcoes_menu[5][35] = {"1 - Jogar contra o computador", "2 - Jogar contra outro jogador", "3 - Rede", "4 - Ranking", "5 - Sair"};
+  char opcoes_menu[3][35] = {"1 - Jogar contra o computador", "2 - Jogar contra outro jogador", "3 - Sair"};
   int i, j, opcao;
 
   clear();
   printf("=================================\n");
-  for (i = 0; i < 5; ++i){
+  for (i = 0; i < 3; ++i){
     for (j = 0; j < 35; ++j){
         if(opcoes_menu[i][j] != '\0') {
             printf("%c", opcoes_menu[i][j]);

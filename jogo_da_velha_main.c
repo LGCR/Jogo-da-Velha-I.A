@@ -5,15 +5,21 @@
 #include <stdbool.h>
 #include "avl_jogo_da_velha.h"
 
-void jogar_contra_computador(int *tabuleiro, Arvore *a){
-    int opcao = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
+void jogar_contra_computador(Arvore *a){
+    int nos = 0, opcao = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
+    Arvore* verificacao = NULL;
     while (true) { //Enquanto o jogo não terminar será verdadeiro
-        imprimir_tabuleiro(a, tabuleiro); //Imprime tabuleiro na tela
+        if(nos != -1) {
+            nos = conta_nos(a);
+        } else{
+            break;
+        }
+        imprimir_tabuleiro(a); //Imprime tabuleiro na tela
         if(vezes == 9){ //Se for igual a 10 o jogo deu velha
             printf("\nDeu Velha!\n"); //Imprime na tela
             break; //Sai do laço
         }
-        if(verifica_ganhador(jogador, tabuleiro) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
+        if(verifica_ganhador(a, jogador) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
             if(jogador == 1) { // Se Jogador 'X'
                 printf("\nParabéns! Você ganhou!\n"); //Imprime na tela
                 break; //Sai do laço
@@ -32,31 +38,44 @@ void jogar_contra_computador(int *tabuleiro, Arvore *a){
         }
 
         if(jogador == 1) { //Ações do jogador
-            opcao = jogada_jogador(); // Jogador escolhe uma posição
-            a = inserir(a, opcao, 'X', tabuleiro); //Insere na Árvore
+            while (nos == conta_nos(a)) {
+                opcao = jogada_jogador(); // Jogador escolhe uma posição
+                if(opcao == -1){
+                    nos = -1;
+                }
+                else if(buscar(a, opcao) == 0) {
+                    a = inserir(a, opcao, 1); //Insere na Árvore
+                    verificacao = inserir(verificacao, opcao, 1);
+                }
+            }
         }else { //Ações do computador
-            a = jogada_computador(a, opcao); //Computador faz sua jogada
+            a = jogada_computador(a, verificacao); //Computador faz sua jogada
         }
         ++vezes; //Incrementa o número de vezes jogadas
     }
 }
 
 /*-----------------------*/
-void jogar_contra_jogador(int* tabuleiro, Arvore *a){
-    int opcao = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
+void jogar_contra_jogador(Arvore *a){
+    int opcao = 0, nos = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
     while (true) { //Enquanto o jogo não terminar será verdadeiro
-        imprimir_tabuleiro(a, tabuleiro); //Imprime tabuleiro na tela
+        if(nos != -1) {
+            nos = conta_nos(a);
+        } else{
+            break;
+        }
+        imprimir_tabuleiro(a); //Imprime tabuleiro na tela
         if(vezes == 9){ //Se for igual a 10 o jogo deu velha
             printf("\nDeu Velha!\n"); //Imprime na tela
             break; //Sai do laço
         }
-        if(verifica_ganhador(jogador, tabuleiro) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
+        if(verifica_ganhador(a, jogador) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
             if(jogador == 1) { // Se Jogador 'X'
-                printf("\nParabéns! Você ganhou!\n"); //Imprime na tela
+                printf("\nParabéns! O jogador 'X' ganhou!\n"); //Imprime na tela
                 break; //Sai do laço
             }
             else { //Se jogador 'O'
-                printf("\nQue pena! Você perdeu!\n"); //Imprime na tela
+                printf("\nQue pena! O jogador 'O' perdeu!\n"); //Imprime na tela
                 break; //Sai do laço
             }
         }
@@ -68,11 +87,25 @@ void jogar_contra_jogador(int* tabuleiro, Arvore *a){
             jogador_anterior = aux; //jogador_anterior recebe o valor de aux que contem o valor anterior de jogador
         }
         if(jogador == 1) { //Ações do jogador 'X'
-            opcao = jogada_jogador(); // Jogador escolhe uma posição
-            a = inserir(a, opcao, 'X', tabuleiro); //Insere na Árvore
+            while (nos == conta_nos(a)) {
+                opcao = jogada_jogador(); // Jogador escolhe uma posição
+                if(opcao == -1){
+                    nos = -1;
+                }
+                else if(buscar(a, opcao) == 0) {
+                    a = inserir(a, opcao, 1); //Insere na Árvore
+                }
+            }
         }else { //Ações do jogador 'O'
-            opcao = jogada_jogador(); // Jogador escolhe uma posição
-            a = inserir(a, opcao, 'O', tabuleiro); //Insere na Árvore
+            while (nos == conta_nos(a)) {
+                opcao = jogada_jogador(); // Jogador escolhe uma posição
+                if(opcao == -1){
+                    nos = -1;
+                }
+                else if(buscar(a, opcao) == 0) {
+                    a = inserir(a, opcao, 2); //Insere na Árvore
+                }
+            }
         }
         ++vezes; //Incrementa o número de vezes jogadas
     }
@@ -81,23 +114,19 @@ void jogar_contra_jogador(int* tabuleiro, Arvore *a){
 /*----------------------*/
 int main () {
 
-    int tabuleiro[] = {0,0,0,0,0,0,0,0,0};
     Arvore *AVL = NULL;
     int opcao = 0, i;
 
     while(opcao != 5){
-        for (i = 0; i < 9; ++i) {
-            tabuleiro[i] = 0;
-        }
         opcao = menu_principal();
         switch (opcao){
             case 1:
-                jogar_contra_computador(tabuleiro, AVL);
+                jogar_contra_computador(AVL);
                 break;
             case 2:
-                jogar_contra_jogador(tabuleiro, AVL);
+                jogar_contra_jogador(AVL);
                 break;
-            case 5:
+            case 3:
                 exit(0);
         }
     }
