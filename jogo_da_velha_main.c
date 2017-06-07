@@ -8,26 +8,33 @@
 void jogar_contra_computador(Arvore *a){
     int nos = 0, opcao = 0, jogador = 1, jogador_anterior = 2, vezes = 0, aux = 0; //Variáveis locais de verificação
     Arvore* verificacao = NULL;
+    Arvore* ver_aux = NULL;
     while (true) { //Enquanto o jogo não terminar será verdadeiro
         if(nos != -1) {
-            nos = conta_nos(a);
+            nos = conta_nos(a);//numero de nós na arvore
         } else{
             break;
         }
         imprimir_tabuleiro(a); //Imprime tabuleiro na tela
-        if(vezes == 9){ //Se for igual a 10 o jogo deu velha
-            printf("\nDeu Velha!\n"); //Imprime na tela
-            break; //Sai do laço
-        }
         if(verifica_ganhador(a, jogador) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
             if(jogador == 1) { // Se Jogador 'X'
                 printf("\nParabéns! Você ganhou!\n"); //Imprime na tela
+                flush(); //Limpa Buffer
+                getchar();//Segura tela até alguma tecla ser apertada
                 break; //Sai do laço
             }
             else { //Se jogador 'O'
                 printf("\nQue pena! Você perdeu!\n"); //Imprime na tela
+                flush(); //Limpa Buffer
+                getchar();//Segura tela até alguma tecla ser apertada
                 break; //Sai do laço
             }
+        }
+        if(vezes == 9){ //Se for igual a 10 o jogo deu velha
+            printf("\nDeu Velha!\n"); //Imprime na tela
+            flush(); //Limpa Buffer
+            getchar();//Segura tela até alguma tecla ser apertada
+            break; //Sai do laço
         }
 
         //Realização de swap entre jogadores
@@ -45,11 +52,12 @@ void jogar_contra_computador(Arvore *a){
                 }
                 else if(buscar(a, opcao) == 0) {
                     a = inserir(a, opcao, 1); //Insere na Árvore
-                    verificacao = inserir(verificacao, opcao, 1);
+                    verificacao = inserir(verificacao, opcao, 1); //Arvore de verificacao
+                    ver_aux = inserir(ver_aux, opcao, 1); // Arvore de verificacao auxiliar
                 }
             }
         }else { //Ações do computador
-            a = jogada_computador(a, verificacao); //Computador faz sua jogada
+            a = jogada_computador(a, verificacao, ver_aux); //Computador faz sua jogada
         }
         ++vezes; //Incrementa o número de vezes jogadas
     }
@@ -65,21 +73,26 @@ void jogar_contra_jogador(Arvore *a){
             break;
         }
         imprimir_tabuleiro(a); //Imprime tabuleiro na tela
-        if(vezes == 9){ //Se for igual a 10 o jogo deu velha
-            printf("\nDeu Velha!\n"); //Imprime na tela
-            break; //Sai do laço
-        }
         if(verifica_ganhador(a, jogador) != -1){ //Se retorno da verificação for diferente de -1 e jogador igual a 1, jogador ganhou
             if(jogador == 1) { // Se Jogador 'X'
                 printf("\nParabéns! O jogador 'X' ganhou!\n"); //Imprime na tela
+                flush(); //Limpa Buffer
+                getchar();//Segura tela até alguma tecla ser apertada
                 break; //Sai do laço
             }
             else { //Se jogador 'O'
                 printf("\nQue pena! O jogador 'O' perdeu!\n"); //Imprime na tela
+                flush(); //Limpa Buffer
+                getchar();//Segura tela até alguma tecla ser apertada
                 break; //Sai do laço
             }
         }
-
+        if(vezes == 9){ //Se for igual a 10 o jogo deu velha
+            printf("\nDeu Velha!\n"); //Imprime na tela
+            flush(); //Limpa Buffer
+            getchar();//Segura tela até alguma tecla ser apertada
+            break; //Sai do laço
+        }
         //Realização de swap entre jogadores
         if(vezes > 0) { //Se vezes for maior que 0
             aux = jogador; //Guarda em aux o valor de jogador

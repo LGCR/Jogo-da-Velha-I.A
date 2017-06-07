@@ -16,6 +16,10 @@ typedef struct node {
     struct node* dir;
 } No, Arvore;
 
+void clear();
+
+void flush();
+
 /*----------------------*/
 int maior (int esq, int dir) ;
 
@@ -64,9 +68,13 @@ int verifica_ganhador(Arvore* a, int jogador);
 
 int conta_nos(Arvore *a);
 
-void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, int *passos, int index);
+void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, Arvore*c, int *passos, int index);
 
-Arvore* jogada_computador(Arvore* a, Arvore* verificacao);
+//void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, int *passos, int index);
+
+Arvore* jogada_computador(Arvore* a, Arvore* verificacao, Arvore* ver_aux);
+
+//Arvore* jogada_computador(Arvore* a, Arvore* verificacao);
 
 int jogada_jogador();
 

@@ -3,6 +3,7 @@
 //
 
 
+#include <stdio_ext.h>
 #include "avl_jogo_da_velha.h"
 
 void clear(){
@@ -28,6 +29,16 @@ int altura (Arvore* a) {
    else {
       return a->altura;
    }
+}
+
+void flush(){
+#ifdef __linux__
+    __fpurge(stdin);
+#elif defined _WIN32
+    fflsuh(stdin);
+  #else
+    perror("Plataforma não suportada");
+#endif
 }
 
 int atualizar_altura(Arvore *a){
@@ -199,6 +210,12 @@ int buscar(Arvore *a, int chave){
         else{
             return buscar(a->dir, chave);
         }
+        /*else{
+            jogador = buscar(a->esq, chave);
+            if(jogador == 0){
+                jogador = buscar(a->dir, chave);
+            }
+        }*/
     }
     return jogador;
 }
@@ -218,9 +235,9 @@ void imprimir_in_order (Arvore* a, int nivel) {
 
 void arvore_para_vetor(Arvore* a, int *tabuleiro){
     if(a != NULL){
-        tabuleiro[a->chave] = a->jogador;
-        arvore_para_vetor(a->esq, tabuleiro);
-        arvore_para_vetor(a->dir, tabuleiro);
+        tabuleiro[a->chave] = a->jogador; //Insere chave no vetor
+        arvore_para_vetor(a->esq, tabuleiro); //Percorre Arvore
+        arvore_para_vetor(a->dir, tabuleiro); //Percorre Arvore
     }
 }
 
@@ -229,17 +246,17 @@ void imprimir_tabuleiro(Arvore* a){
     char jogada;
 
     if(a != NULL) {
-        arvore_para_vetor(a, tabuleiro);
+        arvore_para_vetor(a, tabuleiro); //Transforma Avl em vetor
     }
 
     //flush();
     printf("\n");
     for (i = 0; i < 9; ++i) {
-        if(tabuleiro[i] == 1){
+        if(tabuleiro[i] == 1){ //Se Jogador X
             jogada = 'X';
-        } else if(tabuleiro[i] == 2){
+        } else if(tabuleiro[i] == 2){ //Se jogador O
             jogada = 'O';
-        } else{
+        } else{ //Espaço em branco
             jogada = ' ';
         }
         printf("  %c  ", jogada);
@@ -294,74 +311,89 @@ int conta_nos(Arvore *a){
     return 0;
 }
 
-void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, int *passos, int index){
+//void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, Arvore* c, int *passos, int index){
+
+void  calcula_passos(Arvore** verificacao, Arvore* a, Arvore* b, Arvore* c, int *passos, int index){
     if(index < 9) {
-        if (*verificacao != NULL) {
-            if (buscar(a, index) == 0) {
-                *verificacao = inserir(*verificacao, index, 1);
-                if (verifica_ganhador(b, 1) == -1) {
-                    calcula_passos(&(*verificacao)->esq, a, b, passos, index + 1);
-                    calcula_passos(&(*verificacao)->dir, a, b, passos, index + 1);
-                }
-                if(verifica_ganhador(b, 1) != -1){
-                    a = inserir(a, index, 1);
-                    if(verifica_ganhador(a, 1) != -1) {
-                        *passos = index;
+        if (*verificacao != NULL) { //Se não for vazia
+            if (buscar(a, index) == 0) { //Se indice for vazio na arvore
+                if (buscar(*verificacao, index) == 0) { //Se for vazio na arvore de verificacao tambem
+                    *verificacao = inserir(*verificacao, index, 1); //Insere na arvore de verificação
+                    if (verifica_ganhador(b, 1) == -1) { //Verfica se foi possivel ganhar com o indice inserido
+                        calcula_passos(&(*verificacao)->esq, a, b, c, passos, index + 1); //Percorre Arvore
+                        calcula_passos(&(*verificacao)->dir, a, b, c, passos, index + 1); //Percorre Arvore
                     }
-                    a = remover(a, index);
-                    if (*passos == 0){
-                        if(buscar(a, 0) == 0){
+                    if (verifica_ganhador(b, 1) != -1) { //Se for possível X ganhar
+                        if(buscar(c, index) == 0) {
+                            c = inserir(c, index, 1);
+                            if (verifica_ganhador(c, 1) != -1) {
+                                *passos = index;
+                            }
+                            c = remover(c, index);
+                        }
+                    }
+                    if (*passos == 0) { //Tenta outras jogadas
+                        if (buscar(a, 0) == 0) { //Tenta nos cantos superiores
                             *passos = 0;
-                        }
-                        else if(buscar(a, 2) == 0){
+                        } else if (buscar(a, 2) == 0) { //Tenta nos cantos superiores
                             *passos = 2;
-                        }
-                        else if(buscar(a, 6) == 0){
+                        } else if (buscar(a, 6) == 0) { //Tenta nos cantos inferiores
                             *passos = 6;
-                        }
-                        else if(buscar(a, 8) == 0){
+                        } else if (buscar(a, 8) == 0) { //Tenta nos cantos inferiores
                             *passos = 8;
-                        }
-                        else if(buscar(a, 4) == 0){
+                        } else if (buscar(a, 4) == 0) { //Tenta no centro
                             *passos = 4;
-                        }
-                        else if(buscar(a, 1) == 0){
+                        } else if (buscar(a, 1) == 0) { //Tenta no centro superior
                             *passos = 1;
-                        }
-                        else if(buscar(a, 3) == 0){
+                        } else if (buscar(a, 3) == 0) { //Tenta no centro lateral
                             *passos = 3;
-                        }
-                        else if(buscar(a, 5) == 0){
+                        } else if (buscar(a, 5) == 0) { //Tenta no centro lateral
                             *passos = 5;
-                        }
-                        else if(buscar(a, 7) == 0){
+                        } else if (buscar(a, 7) == 0) { //Tenta no centro inferior
                             *passos = 7;
                         }
                     }
+                    *verificacao = remover(*verificacao, index); //Remove da arvore de verificação
+                } else { //Se já houver indice na arvore
+                    calcula_passos(&(*verificacao), a, b, c, passos, index + 1); //Percorre arvore
                 }
-                *verificacao = remover(*verificacao, index);
-            } else{
-                calcula_passos(&(*verificacao), a, b, passos, index + 1);
             }
         }
     }
 }
 
-Arvore* jogada_computador(Arvore* a, Arvore* verificacao){
+Arvore* jogada_computador(Arvore* a, Arvore* verificacao, Arvore* ver_aux){
 
-    int i, modo = 1, passos = 0, index = 0;
+    int i, modo = 1, passos = 0, index = -1;
 
-    if(a != NULL){
-        for (i = 0; i < 9; ++i) {
-            if (buscar(a, i) == 0) {
-                calcula_passos(&verificacao, a, verificacao, &passos, i);
-                index = passos;
+    if(a != NULL){ //Se não for vazia
+        for(i = 0; i < 9; ++i){ //Laço
+            if(buscar(verificacao, i) == 0){ //verifica existe indice na arvore
+                verificacao = inserir(verificacao, i, 2); //Insere na arvore de verificacao
+                if(verifica_ganhador(verificacao, 2) != -1){ //Verfica se foi possivel 'O' ganhar
+                    ver_aux = inserir(ver_aux, i, 2);//Insere indice na arvore real
+                    if(verifica_ganhador(ver_aux, 2) != -1) { //Verfica se foi possivel 'O' ganhar na arvore real
+                        index = i; //index = 1
+                        break; //Sai do laço
+                    }
+                    ver_aux = remover(ver_aux, i); //remove da arvore real se não ganhar
+                }
+                verificacao = remover(verificacao, i); //remove da arvore de verificação
             }
         }
-        a = inserir(a, index, 2);
-        verificacao = inserir(verificacao, index, 2);
+        if(index == -1) { //Se não foi possivel ganhar
+            for (i = 0; i < 9; ++i) {
+                if (buscar(a, i) == 0) { //busca se existe na arvore
+                    calcula_passos(&verificacao, a, verificacao, ver_aux, &passos, i); //Calcula possibilidades pra se defender
+                    index = passos; //index = passos, indice a ser inserido na arvore
+                }
+            }
+            a = inserir(a, index, 2);//insere na arvore real
+            verificacao = inserir(verificacao, index, 2); // insere na avore de verificação
+            ver_aux = inserir(ver_aux, index, 2);
+        }
     }
-    return a;
+    return a; //retorna arvore
 }
 
 int jogada_jogador(){
